@@ -1,0 +1,23 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.loading-image {
+  width: 20%; /* Initially hidden */
+
+  animation: pop-up 1.5s forwards, none 3s 1.5s forwards; /* Animate pop-up, then stop animation */
+}
+
+@keyframes pop-up {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,79 @@
+#movies {
+  background-image: url("https://img.freepik.com/free-vector/open-clapper-board-with-film-strip-background-design_1017-26102.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 100px;
+}
+
+.img-movie {
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  object-fit: cover;
+  height: 350px;
+}
+
+.card-movie {
+  transition: transform 0.2s;
+}
+
+.card-movie:hover {
+  transform: scale(1.05);
+}
+
+.name-movie h5,
+.buy-now h4 {
+  transition: font-size 0.2s;
+}
+
+.text-movie {
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    width: 90%;
+  }
+  .name-movie h5 {
+    font-size: 1rem;
+  }
+  .buy-now h4 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .card {
+    width: 80%;
+  }
+  .name-movie h5 {
+    font-size: 0.9rem;
+  }
+  .buy-now h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 70%;
+  }
+  .name-movie h5 {
+    font-size: 0.8rem;
+  }
+  .buy-now h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 100%;
+  }
+  .name-movie h5 {
+    font-size: 0.7rem;
+  }
+  .buy-now h4 {
+    font-size: 0.9rem;
+  }
+}

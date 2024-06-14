@@ -1,0 +1,88 @@
+/* Animation for search icon click */
+.nav-link-custom .bi-search.clicked {
+  animation: search-icon-click 0.3s ease;
+}
+
+@keyframes search-icon-click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Expanded search input */
+.mr-sm-2.expand {
+  width: 170px; 
+  transition: width 0.3s ease;
+}
+
+/* Custom Navbar styles */
+.navbar-custom {
+  transition: background-color 0.3s, padding 0.3s;
+  padding: 5px 0; /* Reduced padding to decrease the distance from the top */
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.navbar-scrolled {
+  background-color: #343a40 !important; 
+  padding: 3px 0; /* Kept the padding for the scrolled state */
+}
+
+/* Branding styles */
+.brand-custom .cine {
+  font-weight: bold;
+  color: white;
+}
+
+.brand-custom .plex {
+  font-weight: bold;
+  color: rgb(33, 234, 134);
+}
+
+/* Navigation link styles */
+.nav-link-custom {
+  margin-right: 20px;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  color: #00ff26 !important;
+}
+
+/* Search input transition */
+.search-input {
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  margin-right: 10px;
+}
+
+.search-input.expanded {
+  width: 170px;
+  opacity: 1;
+}
+
+/* Search button margin */
+.search-button {
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+/* Centering navigation items */
+.navbar-custom .navbar-collapse {
+  justify-content: space-between;
+}
+
+.navbar-custom .navbar-toggler {
+  margin-left: auto;
+}

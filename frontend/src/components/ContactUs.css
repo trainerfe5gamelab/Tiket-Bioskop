@@ -1,0 +1,64 @@
+.contact {
+  background-color: rgb(222, 233, 233);
+  height: 100vh;
+  padding-top: 5%;
+  margin-top: -5%;
+}
+
+.contact-us-container {
+  background-color: #f8f9fa;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us-header {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.social-media-icons {
+  margin: 20px 0;
+}
+
+.social-media-icons div {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.social-media-icons div svg {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.open-hours {
+  margin-top: 20px;
+}
+
+.open-hours p {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.open-hours p svg {
+  margin-right: 10px;
+  color: #28a745;
+}
+
+.contact-form {
+  margin-top: 20px;
+}
+
+.contact-form button {
+  background-color: #007bff;
+  border: none;
+}
+
+.social-media-container,
+.open-hours-container {
+  text-align: left;
+  padding-left: 15px;
+}

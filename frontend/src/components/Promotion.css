@@ -1,0 +1,143 @@
+.promotion {
+  min-height: 100vh;
+  background-color: rgb(25, 42, 65);
+  padding: 20px;
+  padding-top: 50px;
+  color: white;
+}
+
+.promotion-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.promotion-icon {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.promotion-icon h1 {
+  font-size: 24px;
+  margin-right: 20px;
+  color: rgb(163, 163, 163);
+}
+
+.promotion-icon img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+
+.promotion-link {
+  text-decoration: none;
+}
+
+.promotion-card {
+  width: 100%;
+  max-width: 18rem;
+  height: 30rem;
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s;
+}
+
+.promotion-card:hover {
+  transform: scale(1.05);
+}
+
+.promotion-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.promotion-card h3 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.card-promotion {
+  height: 100px;
+}
+
+.card-costum {
+  background-color: #365260;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .promotion-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .promotion-icon {
+    justify-content: flex-start;
+  }
+
+  .promotion-card {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .promotion-heading h1 {
+    font-size: 20px;
+  }
+
+  .promotion-icon h1 {
+    font-size: 20px;
+  }
+
+  .promotion-icon img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .promotion-card {
+    max-width: 15rem;
+    height: 25rem;
+    text-align: center;
+  }
+
+  .promotion-card h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .promotion-heading h1 {
+    font-size: 18px;
+  }
+
+  .promotion-icon h1 {
+    font-size: 18px;
+  }
+
+  .promotion-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .promotion-card {
+    max-width: 12rem;
+    height: 20rem;
+    text-align: center;
+  }
+
+  .promotion-card h3 {
+    font-size: 0.875rem;
+  }
+}

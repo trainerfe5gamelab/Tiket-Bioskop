@@ -1,0 +1,49 @@
+.styled-footer {
+  background-color: #282c34;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.company-name {
+  font-size: 1.5em;
+  margin-left: 20px;
+}
+
+.contact-us {
+  margin-right: 20px;
+  text-align: right;
+}
+
+.contact-us p {
+  margin: 5px 0;
+}
+
+.contact-us a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.contact-us a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 10px;
+  font-size: 0.8em;
+  text-align: center;
+  width: 100%;
+}
