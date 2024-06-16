@@ -11,7 +11,7 @@ const ActorCreate = () => {
       <Header />
       <div className="d-flex">
         <Sidebar />
-        <div className="container-fluid">
+        <div className="container-fluid container-fluid-sidebar">
           <Create />
         </div>
       </div>

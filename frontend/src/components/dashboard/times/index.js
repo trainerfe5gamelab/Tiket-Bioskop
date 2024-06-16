@@ -23,11 +23,13 @@ const TimesList = () => {
       getMovie();
     }
   }, [id_movie]);
-
+  console.log(id_movie);
   const getTimes = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/time");
-      setTimes(response.data.times);
+      const response = await axios.get(
+        "http://localhost:5000/api/movie/" + id_movie
+      );
+      setTimes(response.data.movies.times);
     } catch (error) {
       console.error("There was an error fetching the times:", error);
     }

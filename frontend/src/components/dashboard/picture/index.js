@@ -30,8 +30,20 @@ const PictureList = () => {
 
   const deletePicture = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/pictures/${id}`);
-      getPictures();
+      const token = localStorage.getItem("token");
+      if (window.confirm("Are you sure you want to delete this time?")) {
+        await axios.post(
+          `http://localhost:5000/api/picture/delete/${id}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        getPictures();
+      }
     } catch (error) {
       console.error("There was an error deleting the picture:", error);
     }

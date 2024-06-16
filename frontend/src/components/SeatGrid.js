@@ -16,6 +16,7 @@ const SeatGrid = () => {
   const [movie, setMovie] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedPrice, setSelectedPrice] = useState(null);
   const [dates, setDates] = useState([]);
   const [availableTimes, setAvailableTimes] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);
@@ -25,7 +26,12 @@ const SeatGrid = () => {
   const [user, setUser] = useState(null); // State for user
   const totalRows = 11; // Rows A to K (11 rows)
   const totalCols = 14; // 14 seats per row
-  const seatPrice = 35000; // Harga per kursi
+  const seatPrice = selectedPrice; // Harga per kursi
+  console.log(selectedPrice);
+  const headClick = (day, price) => {
+    setSelectedDate(day);
+    setSelectedPrice(price);
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -68,7 +74,7 @@ const SeatGrid = () => {
           if (!dateMap.has(formattedDate)) {
             // Use formattedDate here
             dateMap.set(formattedDate, { day: formattedDate, name });
-            uniqueDates.push({ day: formattedDate, name }); // Push formatted date
+            uniqueDates.push({ day: formattedDate, name, price: time.price }); // Push formatted date
           }
         });
 
@@ -329,7 +335,7 @@ const SeatGrid = () => {
             variant={
               selectedDate === date.day ? "primary" : "outline-secondary"
             }
-            onClick={() => setSelectedDate(date.day)} // Set selected date
+            onClick={() => headClick(date.day, date.price)} // Set selected date
             className="me-2">
             {formatMovieDate(date.day)} <br /> {date.name}
           </Button>

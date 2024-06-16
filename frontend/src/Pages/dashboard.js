@@ -10,7 +10,7 @@ const MyProfil = () => {
       <Header />
       <div className="d-flex">
         <Sidebar />
-        <div className="container-fluid">
+        <div className="container-fluid container-fluid-sidebar">
           <Index />
         </div>
       </div>

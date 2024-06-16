@@ -75,7 +75,7 @@ const Index = () => {
                   <th>Broadcast_Date</th>
                   <th>End_of_Show</th>
                   <th>Genre</th>
-                  <th>Lainya</th>
+                  <th>Preview</th>
                   <th>Jadwal</th>
                   <th>Picture</th>
                   <th>Actions</th>
@@ -107,8 +107,8 @@ const Index = () => {
                     <td>{formatDate(movie.end_of_show)}</td>
                     <td>{movie.name_genre}</td>
                     <td>
-                      <a href={`/dashboard/movie/${movie.id_movie}/times`}>
-                        Lainya
+                      <a href={`/dashboard/movie/preview/${movie.id_movie}`}>
+                        Preview
                       </a>
                     </td>
                     <td>

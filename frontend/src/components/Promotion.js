@@ -80,8 +80,8 @@ const Promotion = () => {
           {Promotions.map((promo, index) => (
             <div key={index}>
               <Card
-                className="promotion-card m-2 shadow"
-                style={{ cursor: "pointer" }}
+                className="promotion-card m-2 shadow "
+                style={{ cursor: "pointer", backgroundColor: "#ffe500" }}
                 onClick={() => handleShow(promo)}>
                 <Card.Img
                   variant="top"
@@ -89,7 +89,7 @@ const Promotion = () => {
                   alt={promo.title}
                   className="foto-promo"
                 />
-                <Card.Body className="card-promotion">
+                <Card.Body className="card-promotion ">
                   {promo.title.split("\n").map((line, idx) => (
                     <h3 key={idx}>{line}</h3>
                   ))}

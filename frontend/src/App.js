@@ -14,6 +14,7 @@ import Tiket from "./Pages/Tiket";
 import Register from "./components/Signup";
 import Dashboard from "./Pages/dashboard";
 import DashboardMovie from "./Pages/dashboardMovie";
+import DashboardMoviePreview from "./Pages/dashboardMoviePreview";
 import DashboardMovieCreate from "./Pages/dashboardMovieCreate";
 import DashboardMovieEdit from "./Pages/dashboardMovieEdit";
 import DashboardTimes from "./Pages/dashboardTimes";
@@ -29,6 +30,9 @@ import DashboardTransaction from "./Pages/dashboardTransaction";
 import DashboardPromotion from "./Pages/dashboardPromotion";
 import DashboardPromotionCreate from "./Pages/dashboardPromotionCreate";
 import DashboardPromotionEdit from "./Pages/dashboardPromotionEdit";
+import DashboardGenre from "./Pages/dashboardGenre";
+import DashboardGenreCreate from "./Pages/dashboardGenreCreate";
+import DashboardGenreEdit from "./Pages/dashboardGenreEdit";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getUser } from "./services/auth";
 
@@ -93,6 +97,10 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/movie" element={<DashboardMovie />} />
           <Route
+            path="/dashboard/movie/preview/:id"
+            element={<DashboardMoviePreview />}
+          />
+          <Route
             path="/dashboard/movie/create"
             element={<DashboardMovieCreate />}
           />
@@ -149,6 +157,15 @@ const App = () => {
           <Route
             path="/dashboard/promotion/edit/:id"
             element={<DashboardPromotionEdit />}
+          />
+          <Route path="/dashboard/genre" element={<DashboardGenre />} />
+          <Route
+            path="/dashboard/genre/create"
+            element={<DashboardGenreCreate />}
+          />
+          <Route
+            path="/dashboard/genre/edit/:id"
+            element={<DashboardGenreEdit />}
           />
         </Routes>
       </Router>

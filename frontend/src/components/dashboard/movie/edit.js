@@ -32,7 +32,7 @@ const EditMovie = () => {
   const fetchGenres = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/genre");
-      setGenres(response.data.gendre); // assuming correct response structure
+      setGenres(response.data.genres); // assuming correct response structure
     } catch (error) {
       console.log(error);
     }

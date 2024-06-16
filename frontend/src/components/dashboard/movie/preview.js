@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReviewForm from "../ReviewForm";
+import ReviewForm from "../../ReviewForm";
 import "./MovieSchedule.css";
-import { formatDate, imageBest } from "../../utils/utils"; // Import function from utils.js
-import { getById } from "../../services/api";
+import { formatDate, imageBest } from "../../../utils/utils"; // Import function from utils.js
+import { getById } from "../../../services/api";
 //import hook history dan params dari react router dom
 import { useParams, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
-import LoadingAnimation from "../LoadingAnimation";
-import { getUser } from "../../services/auth";
+import LoadingAnimation from "../../LoadingAnimation";
+import { getUser } from "../../../services/auth";
 
 const MovieSchedule = () => {
   // Get ID from parameter URL
@@ -121,6 +121,7 @@ const MovieSchedule = () => {
 
   return (
     <div>
+      <div className="text-preview">PREVIEW</div>
       <div
         className="background-image p-5"
         style={{
@@ -228,79 +229,6 @@ const MovieSchedule = () => {
                         </div>
                       ))}
                     </div>
-                    <hr></hr>
-                    <h4 className="text-start mt-5  fw-bold">Review</h4>
-                    <div className="d-flex align-items-center mb-5">
-                      <span
-                        role="img"
-                        aria-label="star"
-                        className="text-warning">
-                        {renderStars(averageRating)} ({jumalahRating})
-                      </span>
-                      <span className="ms-2">
-                        {totalReviews.toLocaleString()} reviews
-                      </span>
-                    </div>
-                    <hr></hr>
-                    <div className="review text-start">
-                      {movie.votes.slice(0, 5).map((v) => (
-                        <div>
-                          <strong>{v.username}</strong>
-                          <div className="text-warning mb-3">
-                            {"★".repeat(v.rating) + "☆".repeat(5 - v.rating)}
-                            <span className="text-light ">
-                              {"  " + formatDate(v.updated_at)}
-                            </span>
-                          </div>
-                          <p>{v.comment}</p>
-                          <hr></hr>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Tab>
-            <Tab eventKey="review" title="Review">
-              <div className="tab-content tabs">
-                <div className="tab-pane fade in active show" id="Section2">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <h4>Review</h4>
-                    {userExists(movie.votes, userIdToCheck) ? (
-                      <Button variant="primary" disabled>
-                        Tambah Ulasan
-                      </Button>
-                    ) : (
-                      <Button variant="primary" onClick={handleShow}>
-                        Tambah Ulasan
-                      </Button>
-                    )}
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <span role="img" aria-label="star" className="text-warning">
-                      {renderStars(averageRating)} ({jumalahRating})
-                    </span>
-                    <span className="ms-2">
-                      {totalReviews.toLocaleString()} reviews
-                    </span>
-                  </div>
-
-                  <div className="review text-start">
-                    <hr></hr>
-                    {movie.votes.map((v) => (
-                      <div>
-                        <strong>{v.username}</strong>
-                        <div className="text-warning mb-3">
-                          {"★".repeat(v.rating) + "☆".repeat(5 - v.rating)}
-                          <span className="text-light">
-                            {"  " + formatDate(v.updated_at)}
-                          </span>
-                        </div>
-
-                        <p>{v.comment}</p>
-                        <hr></hr>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </div>

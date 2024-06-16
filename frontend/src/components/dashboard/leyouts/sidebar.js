@@ -21,6 +21,12 @@ const Sidebar = () => {
         </button>
         <button
           className="list-group-item list-group-item-action"
+          onClick={() => navigate("/dashboard/genre")}>
+          <i class="bi bi-bookmarks"></i>
+          <span className="text-sidebar"> Genre Movies</span>
+        </button>
+        <button
+          className="list-group-item list-group-item-action"
           onClick={() => navigate("/dashboard/movie")}>
           <i class="bi bi-film"></i>
           <span className="text-sidebar"> Movies</span>

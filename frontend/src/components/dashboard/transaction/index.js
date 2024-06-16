@@ -84,16 +84,30 @@ const TransactionsList = () => {
         />
       </div>
 
-      <div className="card mb-3">
-        <div className="card-body">
-          <h5 className="card-title">Transaction Summary</h5>
-          <p className="card-text">Total Transactions: {totalTransactions}</p>
-          <p className="card-text">
-            Transactions in Process: {totalProsesTransactions}
-          </p>
-          <p className="card-text">
-            Successful Transactions: {totalSuccessTransactions}
-          </p>
+      <div className="row row-cols-2 row-cols-lg-3">
+        <div className="col">
+          <div class="card text-bg-primary mb-3">
+            <h4 class="card-header">Total Transaction</h4>
+            <div class="card-body">
+              <h1 class="card-title">{totalTransactions}</h1>
+            </div>
+          </div>
+        </div>
+        <div className="col">
+          <div class="card text-bg-danger mb-3">
+            <h4 class="card-header">Total Transaction Proses</h4>
+            <div class="card-body">
+              <h1 class="card-title">{totalProsesTransactions}</h1>
+            </div>
+          </div>
+        </div>
+        <div className="col">
+          <div class="card text-bg-success mb-3">
+            <h4 class="card-header">Total Transaction Success</h4>
+            <div class="card-body">
+              <h1 class="card-title">{totalSuccessTransactions}</h1>
+            </div>
+          </div>
         </div>
       </div>
 
