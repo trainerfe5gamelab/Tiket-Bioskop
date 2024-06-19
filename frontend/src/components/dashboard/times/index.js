@@ -29,7 +29,7 @@ const TimesList = () => {
       const response = await axios.get(
         "http://localhost:5000/api/movie/" + id_movie
       );
-      setTimes(response.data.movies.times);
+      setTimes(response.data.movies.timesAdmin);
     } catch (error) {
       console.error("There was an error fetching the times:", error);
     }

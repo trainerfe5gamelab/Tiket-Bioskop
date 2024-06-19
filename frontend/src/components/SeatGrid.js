@@ -27,9 +27,9 @@ const SeatGrid = () => {
   const totalRows = 11; // Rows A to K (11 rows)
   const totalCols = 14; // 14 seats per row
   const seatPrice = selectedPrice; // Harga per kursi
-  console.log(selectedPrice);
-  const headClick = (day, price) => {
-    setSelectedDate(day);
+
+  const headClick = (hour, price) => {
+    setSelectedTime(hour);
     setSelectedPrice(price);
   };
 
@@ -68,13 +68,13 @@ const SeatGrid = () => {
         moviesData.times.forEach((time) => {
           const date = new Date(time.dated);
           const formattedDate = format(date, "yyyy-MM-dd"); // Format the date
-          const day = format(date, "ddddd");
+
           const name = format(date, "EEE");
 
           if (!dateMap.has(formattedDate)) {
             // Use formattedDate here
             dateMap.set(formattedDate, { day: formattedDate, name });
-            uniqueDates.push({ day: formattedDate, name, price: time.price }); // Push formatted date
+            uniqueDates.push({ day: formattedDate, name }); // Push formatted date
           }
         });
 
@@ -94,11 +94,14 @@ const SeatGrid = () => {
 
   useEffect(() => {
     if (selectedDate && movie) {
+      setAvailableTimes([]);
       const timesForDate = movie.times
-        .filter(
-          (time) => format(new Date(time.dated), "yyyy-MM-dd") === selectedDate
-        ) // Use formatted date here
-        .map((time) => time.hour);
+        .filter((time) => {
+          const formattedDate = format(new Date(time.dated), "yyyy-MM-dd");
+          return formattedDate === selectedDate;
+        })
+        .map((time) => ({ hour: time.hour, price: time.price }));
+
       setAvailableTimes(timesForDate);
     }
   }, [selectedDate, movie]);
@@ -335,7 +338,7 @@ const SeatGrid = () => {
             variant={
               selectedDate === date.day ? "primary" : "outline-secondary"
             }
-            onClick={() => headClick(date.day, date.price)} // Set selected date
+            onClick={() => setSelectedDate(date.day)} // Set selected date
             className="me-2">
             {formatMovieDate(date.day)} <br /> {date.name}
           </Button>
@@ -343,15 +346,35 @@ const SeatGrid = () => {
       </div>
       <h4 className="mt-4">Jam Tayang</h4>
       <div className="d-flex">
-        {availableTimes.map((time) => (
-          <Button
-            key={time}
-            variant={selectedTime === time ? "primary" : "outline-secondary"}
-            onClick={() => setSelectedTime(time)}
-            className="me-2">
-            {format(new Date(`2000-01-01 ${time}`), "HH:mm")}
-          </Button>
-        ))}
+        {availableTimes.map((time, index) => {
+          // Gunakan objek untuk melacak waktu yang sudah di-render
+          let isRendered = false;
+
+          // Periksa apakah waktu ini sudah di-render sebelumnya
+          for (let i = 0; i < index; i++) {
+            if (availableTimes[i].hour === time.hour) {
+              isRendered = true;
+              break;
+            }
+          }
+
+          // Jika waktu ini sudah di-render, lewati renderingnya
+          if (isRendered) {
+            return null;
+          }
+
+          return (
+            <Button
+              key={time.hour}
+              variant={
+                selectedTime === time.hour ? "primary" : "outline-secondary"
+              }
+              onClick={() => headClick(time.hour, time.price)}
+              className="me-2">
+              {format(new Date(`2000-01-01 ${time.hour}`), "HH:mm")}
+            </Button>
+          );
+        })}
       </div>
 
       <hr></hr>

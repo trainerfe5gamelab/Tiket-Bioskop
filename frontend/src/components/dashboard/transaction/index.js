@@ -29,6 +29,7 @@ const TransactionsList = () => {
     .filter((transaction) => transaction.status === currentView)
     .filter((transaction) => {
       const searchFields = [
+        transaction.id_transaction,
         transaction.name_film,
         transaction.username,
         transaction.no_telp,
