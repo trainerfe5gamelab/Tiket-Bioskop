@@ -9,7 +9,7 @@ const cors = require("cors");
 
 app.use(cors());
 
-const port = 5000;
+const port = 3000;
 
 var movieRouter = require("./routes/movies");
 
