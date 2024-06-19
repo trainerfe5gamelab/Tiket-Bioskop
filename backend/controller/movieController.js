@@ -37,7 +37,13 @@ const getAll = async (req, res, next) => {
 
     const rows = await new Promise((resolve, reject) => {
       connection.query(
-        "SELECT * FROM tbl_movies INNER JOIN tbl_genreses ON tbl_movies.id_genre = tbl_genreses.id_genre WHERE tbl_movies.archived = false AND tbl_genreses.archived_genre = false AND tbl_movies.broadcast_date <=  CURDATE() AND tbl_movies.end_of_show >=  CURDATE()",
+        `SELECT * FROM tbl_movies 
+     INNER JOIN tbl_genreses ON tbl_movies.id_genre = tbl_genreses.id_genre 
+     WHERE tbl_movies.archived = false 
+     AND tbl_genreses.archived_genre = false 
+     AND tbl_movies.broadcast_date <= CURDATE() 
+     AND tbl_movies.end_of_show >= CURDATE()
+     ORDER BY tbl_movies.created_at DESC`,
         function (err, rows) {
           connection.release();
           if (err) {
@@ -131,7 +137,28 @@ const getById = async (req, res, next) => {
 
     const Rowstimes = await new Promise((resolve, reject) => {
       connection.query(
-        "SELECT * FROM tbl_times WHERE archived=? AND id_movie=? AND dated BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 14 DAY)",
+        `SELECT * FROM tbl_times 
+     WHERE archived = ? 
+     AND id_movie = ? 
+     AND dated BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 14 DAY) 
+     ORDER BY dated ASC, hour ASC`,
+        [0, id],
+        function (err, rows) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(rows);
+          }
+        }
+      );
+    });
+    const RowstimesAdmin = await new Promise((resolve, reject) => {
+      connection.query(
+        `SELECT * FROM tbl_times 
+     WHERE archived = ? 
+     AND id_movie = ? 
+     AND dated BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 14 DAY) 
+     ORDER BY dated DESC`,
         [0, id],
         function (err, rows) {
           if (err) {
@@ -173,6 +200,7 @@ const getById = async (req, res, next) => {
         votes: rows_vote,
         actor: rows_actor,
         times: Rowstimes,
+        timesAdmin: RowstimesAdmin,
       },
     });
   } catch (err) {

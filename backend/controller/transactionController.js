@@ -223,16 +223,24 @@ const getAll = async (req, res, next) => {
 
     const query = `
       SELECT 
-       *
+       t.id_transaction, 
+       t.total,
+       t.seat,
+       t.status,
+       m.name_film,
+       u.username,
+       u.no_telp,
+       u.email,
+       tm.dated,
+       tm.hour
       FROM tbl_transactions as t 
-      INNER JOIN tbl_times as tt ON t.id_time = tt.id_time 
       INNER JOIN tbl_movies as m ON t.id_movie = m.id_movie 
       INNER JOIN tbl_users as u ON t.id_user = u.id_user 
+      right JOIN tbl_times as tm ON t.id_time = tm.id_time 
       WHERE t.archived = ? 
     `;
 
     const queryParams = [0];
-
     const rows = await new Promise((resolve, reject) => {
       connection.query(query, queryParams, function (err, rows) {
         if (err) {

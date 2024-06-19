@@ -45,7 +45,7 @@ const getAll = async (req, res, next) => {
     return res.status(200).json({
       status: true,
       message: "List Data Posts",
-      gendre: rows,
+      genres: rows,
     });
   } catch (err) {
     console.error("Error:", err);
@@ -96,7 +96,7 @@ const getById = async (req, res, next) => {
     return res.status(200).json({
       status: true,
       message: "List Data Posts",
-      gendre: rows,
+      genres: rows,
     });
   } catch (err) {
     console.error("Error:", err);

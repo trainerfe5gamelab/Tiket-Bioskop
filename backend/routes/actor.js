@@ -45,7 +45,6 @@ router.get("/:id", actor.getById);
 router.post(
   "/create",
   upload.single("picture"),
-  upload.single("picture"),
   verifyToken,
   checkRole("admin"),
   actor.create
